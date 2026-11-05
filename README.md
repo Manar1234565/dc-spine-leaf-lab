@@ -21,7 +21,17 @@ Virtual data center network built with **containerlab** and **FRRouting**: a 2-t
 ## Results
 - Both spines installed as equal-cost next hops on every leaf.
 - Traceroute shows traffic hashed across both spines.
-- **Failure test**: with the spine1-leaf1 link down, traffic fails over to spine2 with 0% packet loss.
+- **Failure test**: with the spine1-leaf1 link down, traffic fails over to spine2 in about 1 second. Flows already hashed to spine2 see 0% loss; flows on the failed path lose about one packet during reconvergence.
+
+## Screenshots
+
+**BGP sessions, ECMP and traceroute across both spines**
+
+![ECMP](screenshots/ecmp-traceroute.png)
+
+**Failover test (spine1-leaf1 link down)**
+
+![Failover](screenshots/failover-test.png)
 
 ## Run it
 
